@@ -4,16 +4,16 @@ import { env } from "../../env/server.mjs";
 
 declare global {
   // eslint-disable-next-line no-var
-  var prisma: PrismaClient | undefined;
+  var prismaClient: PrismaClient | undefined;
 }
 
-export const prisma =
-  global.prisma ||
+export const prismaClient =
+  global.prismaClient ||
   new PrismaClient({
     log:
       env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
   });
 
 if (env.NODE_ENV !== "production") {
-  global.prisma = prisma;
+  global.prismaClient = prismaClient;
 }
