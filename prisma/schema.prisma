@@ -62,3 +62,42 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+model Document {
+    id String @id @default(cuid())
+    sourceDocumentId String
+    sourceId String 
+    source Source  @relation(fields: [sourceId], references: [id])
+    name String
+    type String
+    url String 
+    sponsored Boolean?
+    description String?
+    imageId String
+    image Image  @relation(fields: [imageId], references: [id])
+    @@unique([sourceDocumentId,sourceId])
+}
+model Image {
+    id            String    @id @default(cuid())
+    name String
+    photographerId String
+    photographer Photographer @relation(fields: [photographerId], references: [id])
+    url String @unique
+    documents Document[]
+}
+model Photographer{
+    id            String    @id @default(cuid())
+    name String
+    images Image []
+}
+model Source {
+    id String @id @default(cuid())
+    name String
+    slug String @unique
+    documents Document[]
+}
+// enum not supported by sqllite
+//enum ArticleType {
+//  ARTICLE
+//  RECIPE
+//}
