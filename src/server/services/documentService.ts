@@ -6,7 +6,7 @@ import { ImageService } from "./imageService";
 import { SourceService } from "./sourceService";
 export class DocumentService{
     public static async createMany(docs: Array<DocumentKoket>){
-        const sourceDB = await SourceService.upsert({slug: 'koketse',name: 'Köket.se'})
+        const sourceDB = await SourceService.upsert({slug: 'koketse',name: 'Köket.se', url: 'https://www.koket.se'})
         const imageDB = await ImageService.upsertMany(docs.map(d=> d.image));
         const imageMap= mapBy(imageDB,i=> i.url)
         const queries = docs.map(doc=> {
@@ -29,7 +29,7 @@ export class DocumentService{
     public static async getAll(){
         const docs = await prismaClient.document.findMany({select: {
             id:true,
-            source: {select: {id: true,name:true}},
+            source: {select: {id: true,name:true, url:true}},
             name: true,
             type: true, 
             url: true,

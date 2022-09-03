@@ -2,13 +2,13 @@ import Image from "next/image";
 import type {Document as DocumentDB, Image as ImageDB} from "@prisma/client"
 import styles from './Thumbnail.module.scss'
 type ThumbnailProps={
-    document: DocumentDB & {image: ImageDB}
+    doc: DocumentDB & {image: ImageDB}
 }
-const Thumbnail = ({document}: ThumbnailProps) =>{
-    return <> 
-    <Image objectFit="cover" layout="fill" alt={document.name}  src={document.image.url} />
-    <p className={styles.text}>{document.name}</p>
-    <p className={styles.sponsored}>Sponsrat</p>
-    </>
+const Thumbnail = ({doc}: ThumbnailProps) =>{
+    return <a href={doc.url} rel="noreferrer" target="_blank"> 
+    <Image objectFit="cover" layout="fill" alt={doc.name}  src={doc.image.url} />
+    <p className={styles.text}>{doc.name}</p>
+    {doc.sponsored && <p className={styles.sponsored}>Sponsrat</p>}
+    </a>
 }
 export default Thumbnail;

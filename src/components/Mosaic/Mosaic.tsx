@@ -8,6 +8,6 @@ type MosaicProps = {
 export const Mosaic = ({documents}: MosaicProps) => {
    
     return <div className ={styles.wrapper}>{
-        documents.slice(0,6).map(d=> <div className={styles.item}key={d.id}> <Thumbnail document={d}></Thumbnail> </div>)
+        documents.slice(0,6).map(doc=> <div className={styles.item}key={doc.id}> <Thumbnail doc={doc}></Thumbnail> </div>)
         }</div>
 }

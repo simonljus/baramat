@@ -93,6 +93,7 @@ model Photographer{
 model Source {
     id String @id @default(cuid())
     name String
+    url String?
     slug String @unique
     documents Document[]
 }
