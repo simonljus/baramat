@@ -16,3 +16,7 @@
     color: white;
     padding-right: 0.5em;
 }
+.image:hover{
+    transform: scale(1.5);
+    transition: transform 3s ease-in-out;
+}

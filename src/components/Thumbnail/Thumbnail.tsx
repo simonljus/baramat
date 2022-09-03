@@ -6,7 +6,7 @@ type ThumbnailProps={
 }
 const Thumbnail = ({doc}: ThumbnailProps) =>{
     return <a href={doc.url} rel="noreferrer" target="_blank"> 
-    <Image objectFit="cover" layout="fill" alt={doc.name}  src={doc.image.url} />
+    <Image className={styles.image} objectFit="cover" layout="fill" alt={doc.name}  src={doc.image.url} />
     <p className={styles.text}>{doc.name}</p>
     {doc.sponsored && <p className={styles.sponsored}>Sponsrat</p>}
     </a>
