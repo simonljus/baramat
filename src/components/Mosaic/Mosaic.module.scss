@@ -23,7 +23,7 @@
 @media (min-width: 650px) {
     .wrapper{
         width:  75vw;
-        height: 50vw;
+        height: 45vw;
         grid-template-columns: [col1-start] 25% [col2-start] 25% [col3-start] 25% [col4-start] 25% [col4-end];
 	    grid-template-rows: [row1-start] 70% [row2-start] 30% [row2-end];
     }

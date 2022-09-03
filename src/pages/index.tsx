@@ -21,7 +21,7 @@ const Home = ({docs}: DocumentsProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
+      <main className="container mx-auto flex flex-col items-center justify-center">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-600">
           Bara mat
         </h1>
