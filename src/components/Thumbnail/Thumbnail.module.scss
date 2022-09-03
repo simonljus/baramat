@@ -1,3 +1,4 @@
+
 .text{
     position: absolute;
     bottom: 0;
@@ -16,7 +17,29 @@
     color: white;
     padding-right: 0.5em;
 }
-.image:hover{
-    transform: scale(1.5);
-    transition: transform 3s ease-in-out;
+.thumbnail:hover {
+    .image{
+        animation: spin 10s infinite alternate;
+    }
+    .description{
+        position: absolute;
+        top: 20%;
+        right: 0;    
+        width: 50%;
+        max-height: 50%;
+        overflow: hidden;
+        background: rgba($color: #000000, $alpha: 0.75);
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        padding-left: 1em;
+        color: white;
+    }
+    
+}
+@keyframes spin {
+    from { 
+        rotate: 0;
+    } to { 
+        rotate: 370deg; 
+    }
 }

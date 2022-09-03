@@ -7,6 +7,9 @@
 	grid-template-columns: [col1-start] 50%  [col2-start] 50%  [col2-end];
 	grid-template-rows: [row1-start] 30% [row2-start] 30% [row3-start] 20% [row4-start] 20% [row4-end];
 }
+.item{
+    background: rgb(17, 192, 166)
+}
 .wrapper .item{
     height: 100%;
     width: 100%;

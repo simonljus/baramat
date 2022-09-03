@@ -5,10 +5,11 @@ type ThumbnailProps={
     doc: DocumentDB & {image: ImageDB}
 }
 const Thumbnail = ({doc}: ThumbnailProps) =>{
-    return <a href={doc.url} rel="noreferrer" target="_blank"> 
+    return <a className={styles.thumbnail} href={doc.url} rel="noreferrer" target="_blank"> 
     <Image className={styles.image} objectFit="cover" layout="fill" alt={doc.name}  src={doc.image.url} />
-    <p className={styles.text}>{doc.name}</p>
     {doc.sponsored && <p className={styles.sponsored}>Sponsrat</p>}
+    <p className={styles.text}>{doc.name}</p>
+    {doc.description && <p className={styles.description}>{doc.description}</p>}
     </a>
 }
 export default Thumbnail;
