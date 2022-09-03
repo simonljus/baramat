@@ -1,5 +1,8 @@
 # Bara mat
 A page for food content
+## How to configure
+* npm install
+* npx prisma db push: Configure db with schema
 ## How to run 
 * npm run dev: Start dev server
 * npm run test: Start vitest
