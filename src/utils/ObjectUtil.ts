@@ -28,3 +28,11 @@ export function unique<K, V>(items: V[], getKey: (item: V) => K): V[] {
 	});
 	return filtered;
 }
+export function shuffle<V>(items: V[]): V[]{
+	const copy = items.slice()
+	const shuffled: Array<V> = [];
+	while(copy.length){
+		shuffled.push(...copy.splice(Math.floor(Math.random() * copy.length),1))
+	}
+	return shuffled
+}

@@ -1,12 +1,12 @@
 import type { Document,Image } from "@prisma/client"
-import { d } from "vitest/dist/index-ea17aa0c"
 import { Mosaic } from "../components/Mosaic/Mosaic"
 import { DocumentService } from "../server/services/documentService"
+import { shuffle } from "../utils/ObjectUtil"
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
     const docs = await DocumentService.getAll()
-    console.log()
-    return {props: {docs: docs.map(d=> ({...d, url: `${d.source.url || ''}${d.url}` }))} }
+    const shuffled = shuffle(docs)
+    return {props: {docs: shuffled.map(d=> ({...d, url: `${d.source.url || ''}${d.url}` }))} }
 } 
 type DocumentsProps = {
     docs: Array<Document & {image: Image}>
