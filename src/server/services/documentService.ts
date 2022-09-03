@@ -26,5 +26,20 @@ export class DocumentService{
         const transactions = batches.map(b=> prismaClient.$transaction(b))
         return (await Promise.all(transactions)).flat()
     }
+    public static async getAll(){
+        const docs = await prismaClient.document.findMany({select: {
+            id:true,
+            source: {select: {id: true,name:true}},
+            name: true,
+            type: true, 
+            url: true,
+            sponsored: true,
+            description:true,
+            image: {
+                select: {url: true, photographer: {select: {name: true}}}
+            }
+        }})
+        return docs
+    }
    
 }
