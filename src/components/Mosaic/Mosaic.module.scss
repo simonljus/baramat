@@ -8,7 +8,11 @@
 	grid-template-rows: [row1-start] 30% [row2-start] 30% [row3-start] 20% [row4-start] 20% [row4-end];
 }
 .wrapper .item{
-    background: red;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.9)
+    );
     height: 100%;
     width: 100%;
     position: relative;
@@ -25,11 +29,11 @@
     .wrapper{
         width:  75vw;
         height: 50vw;
-        grid-template-columns: [col1-start] 25% [col2-start] 25% [col3-start] 25% [col-start] 25% [row4-end];
+        grid-template-columns: [col1-start] 25% [col2-start] 25% [col3-start] 25% [col4-start] 25% [col4-end];
 	    grid-template-rows: [row1-start] 70% [row2-start] 30% [row2-end];
     }
     .wrapper .item:nth-child(1){
-        grid-column: col1-start / col2-end;
+        grid-column: col1-start / col3-start;
         grid-row: row1-start / row2-start ;
     }
     .wrapper .item:nth-child(2){
