@@ -1,5 +1,5 @@
 import type { Document, Image as ImageDB } from "@prisma/client"
-import Image from "next/image"
+import Thumbnail from "../Thumbnail/Thumbnail"
 import styles from './Mosaic.module.scss'
 
 type MosaicProps = {
@@ -8,6 +8,6 @@ type MosaicProps = {
 export const Mosaic = ({documents}: MosaicProps) => {
    
     return <div className ={styles.wrapper}>{
-        documents.slice(0,6).map(d=> <div className={styles.item}key={d.id}><Image objectFit="cover" layout="fill" alt={d.name}  src={d.image.url} /> </div>)
+        documents.slice(0,6).map(d=> <div className={styles.item}key={d.id}> <Thumbnail document={d}></Thumbnail> </div>)
         }</div>
 }
