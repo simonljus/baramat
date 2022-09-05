@@ -8,7 +8,7 @@ import { z } from "zod";
 export const serverSchema = z.object({
   POSTGRES_DATABASE_URL: z.string().url().optional(),
   DATABASE_URL: z.string().url().optional(),
-  CRON_PASSWORD:z.string(),
+  CRON_PASSWORD:z.string().optional(),
   NODE_ENV: z.enum(["development", "test", "production"]),
   NEXTAUTH_SECRET: z.string().optional(),
   NEXTAUTH_URL: z.string().url().optional(),
